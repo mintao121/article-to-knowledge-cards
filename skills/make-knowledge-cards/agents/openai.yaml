@@ -1,0 +1,10 @@
+interface:
+  display_name: "Make Knowledge Cards"
+  short_description: "Convert pasted articles or local Markdown/TXT files into 5-8 concise knowledge cards"
+  default_prompt: >-
+    Use $make-knowledge-cards to turn a pasted article or a local Markdown/TXT
+    file into 5-8 knowledge cards, each teaching one concept with a title, core
+    knowledge, a plain-language explanation, and an example or self-test question.
+    Do not fabricate information absent from the source, do not pad the card
+    count when the source is thin, and decline unsupported inputs (web scraping,
+    PDF, Anki, GUI).

@@ -1,0 +1,6 @@
+# WorkBuddy 工作区目录（含内部开发日志，不应公开）
+.workbuddy/
+
+# Python 缓存
+__pycache__/
+*.pyc
