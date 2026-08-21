@@ -33,6 +33,8 @@
 | 19 | 咨询 | 流程有哪些图示形式 | 8 种形式对比 |
 | 20 | 可视化 | 泳道图+时间线+flow.md | 三视图 + docs/flow.md |
 | 21 | 咨询 | flow.md 效果如何 | 渲染说明 + 三张图 |
+| 22 | 文档 | 梳理提示词到文档 | 生成本文档 docs/prompts.md |
+| 23 | 发布 | 检查并发布 v0.1.0 | 提交 docs/ + 打标签 + GitHub Release |
 
 ---
 
@@ -261,6 +263,27 @@
 **输出结果**
 - 生成本文档 `docs/prompts.md`（总览表 + 22 步逐条提示词与输出）
 
+## 23 · 检查并发布 v0.1.0
+
+**提示词（图片文字）**
+> 请检查当前项目是否适合发布 v0.1.0，并准备：
+> 1. v0.1.0 Tag
+> 2. Release 标题
+> 3. 简洁的发布说明
+> 4. 当前功能
+> 创建并推送 v0.1.0 Tag，然后发布 GitHub Release。
+
+**输出结果（用户确认方案 A：先提交 docs/ 再打标签）**
+- 就绪检查：Skill 源码 / 测试 / 文档 / 校验 / 安全自查 全通过；无历史标签；`docs/` 当时未提交
+- 提交 `75c48d4`：`docs: 补充流程图与提示词记录`（docs/flow.md + docs/prompts.md，343 行）
+- 推送 main：`62eeca8..75c48d4` → 远程（首推遇瞬时 TLS 失败，重试成功）
+- 创建带注释标签 `v0.1.0`（指向 `75c48d4`），推送远程标签
+- `gh release create v0.1.0` 发布 Release：
+  - 标题：`v0.1.0: 首次发布 — make-knowledge-cards 开源 Agent Skill`
+  - 说明见 `docs/release-notes-v0.1.0.md`（功能 / 兼容性 / 文件清单 / 校验）
+  - 地址：https://github.com/mintao121/article-to-knowledge-cards/releases/tag/v0.1.0
+  - 状态：已发布（非草稿、非预发布），publishedAt 2026-08-21T10:06:28Z
+
 ---
 
 ## 关键产物清单
@@ -275,10 +298,14 @@
 | `README.md` | 项目文档（含安装/用法/示例） |
 | `LICENSE` | 根目录 MIT |
 | `.gitignore` | 排除 `.workbuddy/` |
-| `docs/flow.md` | Mermaid 三视图流程图（未提交） |
-| `docs/prompts.md` | 本文档（未提交） |
+| `docs/flow.md` | Mermaid 三视图流程图（已提交 75c48d4） |
+| `docs/prompts.md` | 本文档（已提交 75c48d4） |
+| `docs/release-notes-v0.1.0.md` | v0.1.0 Release 说明原文 |
 
-## 未提交项
+## 发布状态
 
-- `docs/flow.md`、`docs/prompts.md` 尚未 `git add` / 提交 / 推送
-- 需要的话执行：`git add docs && git commit -m "docs: 补充流程图与提示词记录" && git push`
+- 仓库：`article-to-knowledge-cards`（Public）@ https://github.com/mintao121/article-to-knowledge-cards
+- 提交历史：`62eeca8`（初始）→ `75c48d4`（docs）
+- 标签：`v0.1.0`（已推送，指向 `75c48d4`）
+- GitHub Release：v0.1.0 已发布
+- 全部文件已提交并推送，无未提交项
